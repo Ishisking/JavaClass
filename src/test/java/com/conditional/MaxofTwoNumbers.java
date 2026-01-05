@@ -1,0 +1,15 @@
+package com.conditional;
+
+public class MaxofTwoNumbers {
+
+	public static void main(String[] args) {
+		int number1 = 24;
+		int number2 = 44;
+		// MAX number?
+		if (number1 > number2) {
+			System.out.println("Max is : " + number1);
+		} else
+			System.out.println("Max is : " + number2);
+	}
+
+}
