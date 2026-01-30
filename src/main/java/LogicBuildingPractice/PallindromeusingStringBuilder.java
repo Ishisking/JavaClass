@@ -17,7 +17,7 @@ public class PallindromeusingStringBuilder {
 			reverse = reverse * 10 + lastdigit;
 			number = number / 10;
 		}
-		System.out.println("Reverse of Number n is " + originalNumber);
+		System.out.println("Reverse of Number n is " + reverse);
 		if (reverse == originalNumber) {
 			System.out.println("Number : " + originalNumber + " is a Pallindrome");
 		} else {

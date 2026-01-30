@@ -1,16 +1,16 @@
 package LogicBuildingPractice;
 
-//import java.util.Scanner;
+import java.util.Scanner;
 
 public class Pallindrome {
 
 	public static void main(String[] args) {
-//		Scanner sc = new Scanner(System.in);
-//		System.out.println("Enter a Number :");
-//		int number = sc.nextInt();
-//		System.out.println("number =" + number);
+		System.out.println("Enter a Number :");
+		Scanner sc = new Scanner(System.in);
+		int number = sc.nextInt();
+		System.out.println("number =" + number);
 //		 Convert this number to String
-		int number = 899;
+//		int number = 899;
 
 		String originalNumberInString = Integer.toString(number);
 		String originalNumberInString2 = number + "";
@@ -18,13 +18,14 @@ public class Pallindrome {
 		// --StringBuilderClass
 		StringBuilder reverseStringBuilder = new StringBuilder(originalNumberInString);
 		String reverseString = reverseStringBuilder.reverse().toString();
-		System.out.println(reverseStringBuilder.reverse());
+		System.out.println("Reverse Number ="+reverseString);
+		System.out.print(reverseStringBuilder.reverse());
 // Compare 2 Strings
 		if (originalNumberInString.equals(reverseString)) {
-			System.out.println("Pallindrome");
+			System.out.print(" : is a Pallindrome");
 		} else
-			System.out.println("Its not a Pallindrome");
-		// sc.close();
+			System.out.print(" : is not a Pallindrome");
+		 sc.close();
 	}
 
 }
