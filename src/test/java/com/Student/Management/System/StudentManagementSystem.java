@@ -28,7 +28,9 @@ public class StudentManagementSystem {
 		System.out.println("Enter Student Roll No.");
 		studentRollNumber = sc.nextInt();
 		// Calculate Student Grade Automatically
+		
 		studentGrade = calculateGrade(marksObtainedInEnglish, marksObtainedInScience, marksObtainedInMaths);
+		
 		System.out.println("\n------ Student Details ------");
 		System.out.println("Student Name :" + studentName);
 		System.out.println("Student Age :" + studentAge);
