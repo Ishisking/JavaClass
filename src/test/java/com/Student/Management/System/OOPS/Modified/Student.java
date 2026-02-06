@@ -1,4 +1,4 @@
-package com.Student.Management.System.OOPS;
+package com.Student.Management.System.OOPS.Modified;
 
 import java.util.Objects;
 
@@ -12,17 +12,46 @@ public class Student {
 	private double marksObtainedInMaths;
 	private double totalMarks;
 	private double percentage;
+	private String contactNumber;
+	private String address;
 
 	public Student(String name, int rollNumber, int age, double marksObtainedInEnglish, double marksObtainedInScience,
-			double marksObtainedInMaths) {
+			double marksObtainedInMaths, String contactNumber, String address) {
 		if (validateAge(age) && validateRollNumber(rollNumber) && validateMarks(marksObtainedInEnglish)
-				&& validateMarks(marksObtainedInScience) && validateMarks(marksObtainedInMaths)) {
+				&& validateMarks(marksObtainedInScience) && validateMarks(marksObtainedInMaths)
+				&& validateContactNumber(contactNumber)) {
 			this.name = name; // This is a Parameterized Constructor as it has many
 			this.rollNumber = rollNumber; // parameters like name, age, grade...etc.
 			this.age = age;
 			this.marksObtainedInEnglish = marksObtainedInEnglish;
 			this.marksObtainedInScience = marksObtainedInScience;
 			this.marksObtainedInMaths = marksObtainedInMaths;
+			this.contactNumber = contactNumber;
+			this.address = address;
+		}
+	}
+
+	public String getContactNumber() {
+		return contactNumber;
+	}
+
+	public void setContactNumber(String contactNumber) {
+		if (contactNumber.matches("\\d{10}")) {
+			this.contactNumber = contactNumber;
+		} else {
+			System.out.println("Invalid contact number. It must contain exactly 10 digits.");
+		}
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		if (!address.isEmpty() && address.trim().length() >= 5) {
+			this.address = address.trim();
+		} else {
+			System.out.println("Invalid Address Must be at least 5 characters. ");
 		}
 	}
 
@@ -64,6 +93,26 @@ public class Student {
 
 	}
 
+	public boolean validateContactNumber(String contactNumber) {
+		if (contactNumber != null && contactNumber.matches("\\d{10}")) {
+			// System.out.println("Valid contact number");
+			return true;
+		} else {
+			System.err.println("Invalid contact number. It must contain exactly 10 digits.");
+			return false;
+		}
+	}
+
+	public boolean validateAddress(String address) {
+		if (!address.isEmpty() && address.trim().length() >= 5) {
+			System.out.println("Valid Address");
+			return true;
+		} else {
+			System.err.println("Invalid Address");
+			return false;
+		}
+	}
+
 	public int getAge() {
 		return age;
 	}
@@ -80,6 +129,7 @@ public class Student {
 		if (age >= 18 && age < 35) {
 			return true;
 		} else {
+			System.out.println("");
 			System.err.println("Invalid Age of the Student");
 			return false;
 		}
@@ -176,13 +226,14 @@ public class Student {
 		return "Student [name=" + name + ", rollNumber=" + rollNumber + ", age=" + age + ", grade=" + grade
 				+ ", marksObtainedInEnglish=" + marksObtainedInEnglish + ", marksObtainedInScience="
 				+ marksObtainedInScience + ", marksObtainedInMaths=" + marksObtainedInMaths + ", totalMarks="
-				+ totalMarks + ", percentage=" + percentage + "]";
+				+ totalMarks + ", percentage=" + percentage + ", contactNumber=" + contactNumber + ", address="
+				+ address + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(age, grade, marksObtainedInEnglish, marksObtainedInMaths, marksObtainedInScience, name,
-				percentage, rollNumber, totalMarks);
+		return Objects.hash(address, age, contactNumber, grade, marksObtainedInEnglish, marksObtainedInMaths,
+				marksObtainedInScience, name, percentage, rollNumber, totalMarks);
 	}
 
 	@Override
@@ -194,7 +245,8 @@ public class Student {
 		if (getClass() != obj.getClass())
 			return false;
 		Student other = (Student) obj;
-		return age == other.age && Objects.equals(grade, other.grade)
+		return Objects.equals(address, other.address) && age == other.age
+				&& Objects.equals(contactNumber, other.contactNumber) && Objects.equals(grade, other.grade)
 				&& Double.doubleToLongBits(marksObtainedInEnglish) == Double
 						.doubleToLongBits(other.marksObtainedInEnglish)
 				&& Double.doubleToLongBits(marksObtainedInMaths) == Double.doubleToLongBits(other.marksObtainedInMaths)
@@ -206,4 +258,19 @@ public class Student {
 				&& Double.doubleToLongBits(totalMarks) == Double.doubleToLongBits(other.totalMarks);
 	}
 
+	public void displayStudentInfo() {
+		System.out.println("--------------Student Information--------------");
+		System.out.println("Name : " + name);
+		System.out.println("Age :" + age);
+		System.out.println("Roll Number :" + rollNumber);
+		System.out.println("Contact Number :" + contactNumber);
+		System.out.println("Address : " + address);
+		System.out.println("English Marks :" + marksObtainedInEnglish);
+		System.out.println("Science Marks :" + marksObtainedInScience);
+		System.out.println("Maths Marks :" + marksObtainedInMaths);
+		System.out.println("---------------------------------------");
+		System.out.println("Total Marks :" + totalMarks);
+		System.out.println("Percentage Obtained :" + percentage+"%");
+		System.out.println("Grade Obtained : " + grade);
+	}
 }

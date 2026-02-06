@@ -9,9 +9,17 @@ public class person {
 	}
 
 	public person(String name, int id) { // Parameterized Constructor
+		this();  //Constructor chaining // Default constructor of person class
 		System.out.println("Parameterized Constructor");
 		this.name = name;
 		this.id = id;
+
+	}
+
+	public person(person other) { // Copy Constructor
+		System.out.println("Copy Constructor");
+		this.name = other.name;
+		this.id = other.id;
 	}
 
 	public String getName() {
