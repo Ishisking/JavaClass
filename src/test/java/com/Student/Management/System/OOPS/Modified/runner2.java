@@ -33,7 +33,9 @@ public class runner2 {
 */		 Student s2 = new Student("Raj", 23, 7, 80, 80, 80,"9490584064","Ganeshpeth, Nagpur");
 		 s2.calculateTotalMarks(); s2.calculatePercentage(); s2.calculateGrade();
 		 s2.displayStudentInfo();
-		 
+			teacher t1 = new teacher("Anita joshi", 25, "9494668776", "123 TeachersColony Chennai", "Msc Bed", "T101",
+					"Maths", 5);
+			t1.displayTeacherInfo();
 
 	}
 
