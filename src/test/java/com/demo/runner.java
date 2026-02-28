@@ -13,9 +13,9 @@ public class runner {
 //		System.out.println(p2.getName());
 //		System.out.println(p2.getId());
 //
-//		person copyperson = new person(p1);
-//		System.out.println(copyperson.getName());
-//		System.out.println(copyperson.getId());
+		person copyperson = new person(p1);
+		System.out.println(copyperson.getName());
+		System.out.println(copyperson.getId());
 	}
 
 }

@@ -2,32 +2,48 @@ package com.Student.Management.System.OOPS.Modified;
 
 import java.util.Objects;
 
-public class Student {
-	private String name;
+public class Student extends person {
+//	private String name;
 	private int rollNumber;
-	private int age;
+//	private int age;
 	private String grade;
 	private double marksObtainedInEnglish;
 	private double marksObtainedInScience;
 	private double marksObtainedInMaths;
 	private double totalMarks;
 	private double percentage;
-	private String contactNumber;
-	private String address;
+//	private String contactNumber;
+//	private String address;
 
-	public Student(String name, int rollNumber, int age, double marksObtainedInEnglish, double marksObtainedInScience,
-			double marksObtainedInMaths, String contactNumber, String address) {
+//	public Student(String name, int rollNumber, int age, double marksObtainedInEnglish, double marksObtainedInScience,
+//			double marksObtainedInMaths, String contactNumber, String address) {
+//		if (validateAge(age) && validateRollNumber(rollNumber) && validateMarks(marksObtainedInEnglish)
+//				&& validateMarks(marksObtainedInScience) && validateMarks(marksObtainedInMaths)
+//				&& validateContactNumber(contactNumber)) {
+//			this.name = name; // This is a Parameterized Constructor as it has many
+//			this.rollNumber = rollNumber; // parameters like name, age, grade...etc.
+//			this.age = age;
+//			this.marksObtainedInEnglish = marksObtainedInEnglish;
+//			this.marksObtainedInScience = marksObtainedInScience;
+//			this.marksObtainedInMaths = marksObtainedInMaths;
+//			this.contactNumber = contactNumber;
+//			this.address = address;
+//		}
+//	}
+
+	public Student(String name, int age, String address, String contactNumber, int rollNumber,
+			double marksObtainedInEnglish, double marksObtainedInScience, double marksObtainedInMaths) {
+		super(name, age, address, contactNumber);
 		if (validateAge(age) && validateRollNumber(rollNumber) && validateMarks(marksObtainedInEnglish)
 				&& validateMarks(marksObtainedInScience) && validateMarks(marksObtainedInMaths)
 				&& validateContactNumber(contactNumber)) {
-			this.name = name; // This is a Parameterized Constructor as it has many
-			this.rollNumber = rollNumber; // parameters like name, age, grade...etc.
-			this.age = age;
+
+			this.rollNumber = rollNumber;
+			this.grade = grade;
 			this.marksObtainedInEnglish = marksObtainedInEnglish;
 			this.marksObtainedInScience = marksObtainedInScience;
 			this.marksObtainedInMaths = marksObtainedInMaths;
-			this.contactNumber = contactNumber;
-			this.address = address;
+
 		}
 	}
 
@@ -270,7 +286,7 @@ public class Student {
 		System.out.println("Maths Marks :" + marksObtainedInMaths);
 		System.out.println("---------------------------------------");
 		System.out.println("Total Marks :" + totalMarks);
-		System.out.println("Percentage Obtained :" + percentage+"%");
+		System.out.println("Percentage Obtained :" + percentage + "%");
 		System.out.println("Grade Obtained : " + grade);
 	}
 }

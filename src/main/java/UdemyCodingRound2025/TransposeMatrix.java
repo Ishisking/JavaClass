@@ -21,7 +21,7 @@ public class TransposeMatrix {
 				}
 				System.out.println(" ");
 			}
-			int result[][] = new int[3][2];
+			int result[][] = new int[a[0].length][a.length];
 			for (int row = 0; row < a.length; row++) {
 				for (int col = 0; col < a[0].length; col++) {
 					result[col][row] = a[row][col];

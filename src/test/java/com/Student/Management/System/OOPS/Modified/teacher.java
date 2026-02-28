@@ -2,11 +2,11 @@ package com.Student.Management.System.OOPS.Modified;
 
 import java.util.Objects;
 
-public class teacher {
-	private String teacherName;
-	private int teacherAge;
-	private String teacherContactNumber;
-	private String teacherAddress;
+public class teacher extends person {
+//	private String teacherName;
+//	private int teacherAge;
+//	private String teacherContactNumber;
+//	private String teacherAddress;
 	private String professionalDetails;
 	private String employeeID; // T101
 	private String specializedSubject;
@@ -16,46 +16,61 @@ public class teacher {
 	private static final double BASE_SALARY = 30000; // CONSTANTS ---final--STATIC--->UPPERCASE
 	private static final double EXPERIENCE_BONUS = 2000;
 
-	public teacher(String teacherName, int teacherAge, String teacherContactNumber, String teacherAddress,
-			String professionalDetails, String employeeID, String specializedSubject, int yearsOfExperience) {
-		if (validateTeacherAge(teacherAge) && validateContactNumber(teacherContactNumber)
-				&& validateTeacherAddress(teacherAddress) && validateEmployeeID(employeeID)
-				&& validateSpecializedSubject(specializedSubject) && validateYearsOfExperience(yearsOfExperience)) {
+//	public teacher(String teacherName, int teacherAge, String teacherContactNumber, String teacherAddress,
+//			String professionalDetails, String employeeID, String specializedSubject, int yearsOfExperience) {
+//		if (validateTeacherAge(teacherAge) && validateContactNumber(teacherContactNumber)
+//				&& validateTeacherAddress(teacherAddress) && validateEmployeeID(employeeID)
+//				&& validateSpecializedSubject(specializedSubject) && validateYearsOfExperience(yearsOfExperience)) {
+//
+//			this.teacherName = teacherName;
+//			this.teacherAge = teacherAge;
+//			this.teacherContactNumber = teacherContactNumber;
+//			this.teacherAddress = teacherAddress;
+//			this.professionalDetails = professionalDetails;
+//			this.employeeID = employeeID;
+//			this.specializedSubject = specializedSubject;
+//			this.yearsOfExperience = yearsOfExperience;
+//			calculateTotalSalary();
+//		}
+//	}
 
-			this.teacherName = teacherName;
-			this.teacherAge = teacherAge;
-			this.teacherContactNumber = teacherContactNumber;
-			this.teacherAddress = teacherAddress;
+	public teacher(String name, int age, String address, String contactNumber, String professionalDetails,
+			String employeeID, String specializedSubject, int yearsOfExperience) {
+		super(name, age, address, contactNumber);
+		if (validateTeacherAge(age) && validateContactNumber(contactNumber) && validateTeacherAddress(address)
+				&& validateEmployeeID(employeeID) && validateSpecializedSubject(specializedSubject)
+				&& validateYearsOfExperience(yearsOfExperience)) {
+
 			this.professionalDetails = professionalDetails;
 			this.employeeID = employeeID;
 			this.specializedSubject = specializedSubject;
 			this.yearsOfExperience = yearsOfExperience;
-			calculateTotalSalary();
+			
 		}
 	}
 
-	public String getTeacherName() {
-		return teacherName;
+	public String getname() {
+		return name;
 	}
 
-	public void setTeacherName(String teacherName) {
-		this.teacherName = teacherName;
+	public void setname(String name) {
+		this.name = name;
 	}
 
-	public int getTeacherAge() {
-		return teacherAge;
+	public int getage() {
+		return age;
 	}
 
-	public void setTeacherAge(int teacherAge) {
-		if (teacherAge >= 21 && teacherAge <= 60) {
-			this.teacherAge = teacherAge;
+	public void setage(int age) {
+		if (age >= 21 && age <= 60) {
+			this.age = age;
 		} else {
 			System.out.println("Invalid Teacher Age");
 		}
 	}
 
-	public boolean validateTeacherAge(int teacherAge) {
-		if (teacherAge >= 21 && teacherAge <= 60) {
+	public boolean validateTeacherAge(int age) {
+		if (age >= 21 && age <= 60) {
 			return true;
 		} else {
 			System.err.println("Invalid Teacher Age");
@@ -64,19 +79,19 @@ public class teacher {
 	}
 
 	public String getContactNumber() {
-		return teacherContactNumber;
+		return contactNumber;
 	}
 
-	public void setContactNumber(String teacherContactNumber) {
-		if (teacherContactNumber != null && teacherContactNumber.matches("\\d{10}")) {
-			this.teacherContactNumber = teacherContactNumber;
+	public void setContactNumber(String contactNumber) {
+		if (contactNumber != null && contactNumber.matches("\\d{10}")) {
+			this.contactNumber = contactNumber;
 		} else {
 			System.out.println("Invalid Contact Number Entered ");
 		}
 	}
 
-	public boolean validateContactNumber(String teacherContactNumber) {
-		if (teacherContactNumber != null && teacherContactNumber.matches("\\d{10}")) {
+	public boolean validateContactNumber(String contactNumber) {
+		if (contactNumber != null && contactNumber.matches("\\d{10}")) {
 			return true;
 		} else {
 			System.err.println("Invalid Contact Number Entered");
@@ -85,20 +100,20 @@ public class teacher {
 	}
 
 	public String getAddress() {
-		return teacherAddress;
+		return address;
 	}
 
-	public void setAddress(String teacherAddress) {
-		if (!teacherAddress.isEmpty() && teacherAddress.trim().length() >= 5) {
-			this.teacherAddress = teacherAddress;
+	public void setAddress(String address) {
+		if (!address.isEmpty() && address.trim().length() >= 5) {
+			this.address = address;
 		} else {
 			System.out.println("Invalid Teacher Address Must be at least 5 characters");
 		}
 	}
 
-	public boolean validateTeacherAddress(String teacherAddress) {
-		if (!teacherAddress.isEmpty() && teacherAddress.trim().length() >= 5) {
-			this.teacherAddress = teacherAddress;
+	public boolean validateTeacherAddress(String address) {
+		if (!address.isEmpty() && address.trim().length() >= 5) {
+			this.address = address;
 			return true;
 		} else {
 			System.err.println("Invalid Teacher Address Entered ");
@@ -182,16 +197,16 @@ public class teacher {
 
 	@Override
 	public String toString() {
-		return "teacher [teacherName=" + teacherName + ", teacherAge=" + teacherAge + ", teacherContactNumber="
-				+ teacherContactNumber + ", teacherAddress=" + teacherAddress + ", professionalDetails="
-				+ professionalDetails + ", employeeID=" + employeeID + ", specializedSubject=" + specializedSubject
-				+ ", yearsOfExperience=" + yearsOfExperience + ", salary=" + salary + "]";
+		return "teacher [teacherName=" + name + ", teacherAge=" + age + ", teacherContactNumber=" + contactNumber
+				+ ", teacherAddress=" + address + ", professionalDetails=" + professionalDetails + ", employeeID="
+				+ employeeID + ", specializedSubject=" + specializedSubject + ", yearsOfExperience=" + yearsOfExperience
+				+ ", salary=" + salary + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(employeeID, professionalDetails, salary, specializedSubject, teacherAddress, teacherAge,
-				teacherContactNumber, teacherName, yearsOfExperience);
+		return Objects.hash(employeeID, professionalDetails, salary, specializedSubject, address, age, contactNumber,
+				name, yearsOfExperience);
 	}
 
 	@Override
@@ -207,17 +222,17 @@ public class teacher {
 				&& Objects.equals(professionalDetails, other.professionalDetails)
 				&& Double.doubleToLongBits(salary) == Double.doubleToLongBits(other.salary)
 				&& Objects.equals(specializedSubject, other.specializedSubject)
-				&& Objects.equals(teacherAddress, other.teacherAddress) && teacherAge == other.teacherAge
-				&& Objects.equals(teacherContactNumber, other.teacherContactNumber)
-				&& Objects.equals(teacherName, other.teacherName) && yearsOfExperience == other.yearsOfExperience;
+				&& Objects.equals(address, other.address) && age == other.age
+				&& Objects.equals(contactNumber, other.contactNumber) && Objects.equals(name, other.name)
+				&& yearsOfExperience == other.yearsOfExperience;
 	}
 
 	public void displayTeacherInfo() {
 		System.out.println("-------Teacher Information--------");
-		System.out.println("Name :" + teacherName);
-		System.out.println("Age :" + teacherAge);
-		System.out.println("Contact Number :" + teacherContactNumber);
-		System.out.println("Address :" + teacherAddress);
+		System.out.println("Name :" + name);
+		System.out.println("Age :" + age);
+		System.out.println("Contact Number :" + contactNumber);
+		System.out.println("Address :" + address);
 		System.out.println("Professional Details :" + professionalDetails);
 		System.out.println("EmployeeID :" + employeeID);
 		System.out.println("Specialized Subject :" + specializedSubject);
