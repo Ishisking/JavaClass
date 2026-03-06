@@ -3,14 +3,14 @@ package com.Student.Management.System.OOPS.Modified;
 public class Runner {
 
 	public static void main(String[] args) {
-		Student s1 = new Student("Uday", 15, 20, "A", 65, 80, 95);
+		Student s1 = new Student("Uday", 15, "jia sarai,NewDelhi", "8801270527", 20, 65, 80, 95);
 		s1.setName("yogesh");
 		s1.setRollNumber(315);
 		s1.setAge(34);
 		s1.setMarksObtainedInEnglish(90);
 		s1.setMarksObtainedInScience(97.5);
 		s1.setMarksObtainedInMaths(95);
-		s1.setGrade("A");
+		
 
 		System.out.println(s1.getName());
 		System.out.println(s1.getAge());

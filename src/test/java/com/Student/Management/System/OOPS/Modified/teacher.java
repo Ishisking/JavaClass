@@ -3,36 +3,15 @@ package com.Student.Management.System.OOPS.Modified;
 import java.util.Objects;
 
 public class teacher extends person {
-//	private String teacherName;
-//	private int teacherAge;
-//	private String teacherContactNumber;
-//	private String teacherAddress;
+
 	private String professionalDetails;
 	private String employeeID; // T101
 	private String specializedSubject;
 	private int yearsOfExperience;
 	private double salary;
-
+	private static int teacherCounter = 0;
 	private static final double BASE_SALARY = 30000; // CONSTANTS ---final--STATIC--->UPPERCASE
 	private static final double EXPERIENCE_BONUS = 2000;
-
-//	public teacher(String teacherName, int teacherAge, String teacherContactNumber, String teacherAddress,
-//			String professionalDetails, String employeeID, String specializedSubject, int yearsOfExperience) {
-//		if (validateTeacherAge(teacherAge) && validateContactNumber(teacherContactNumber)
-//				&& validateTeacherAddress(teacherAddress) && validateEmployeeID(employeeID)
-//				&& validateSpecializedSubject(specializedSubject) && validateYearsOfExperience(yearsOfExperience)) {
-//
-//			this.teacherName = teacherName;
-//			this.teacherAge = teacherAge;
-//			this.teacherContactNumber = teacherContactNumber;
-//			this.teacherAddress = teacherAddress;
-//			this.professionalDetails = professionalDetails;
-//			this.employeeID = employeeID;
-//			this.specializedSubject = specializedSubject;
-//			this.yearsOfExperience = yearsOfExperience;
-//			calculateTotalSalary();
-//		}
-//	}
 
 	public teacher(String name, int age, String address, String contactNumber, String professionalDetails,
 			String employeeID, String specializedSubject, int yearsOfExperience) {
@@ -45,7 +24,7 @@ public class teacher extends person {
 			this.employeeID = employeeID;
 			this.specializedSubject = specializedSubject;
 			this.yearsOfExperience = yearsOfExperience;
-			
+			teacherCounter++;
 		}
 	}
 
@@ -62,7 +41,7 @@ public class teacher extends person {
 	}
 
 	public void setage(int age) {
-		if (age >= 21 && age <= 60) {
+		if (validateTeacherAge(age)) {
 			this.age = age;
 		} else {
 			System.out.println("Invalid Teacher Age");
@@ -83,7 +62,7 @@ public class teacher extends person {
 	}
 
 	public void setContactNumber(String contactNumber) {
-		if (contactNumber != null && contactNumber.matches("\\d{10}")) {
+		if (validateContactNumber(contactNumber)) {
 			this.contactNumber = contactNumber;
 		} else {
 			System.out.println("Invalid Contact Number Entered ");
@@ -104,7 +83,7 @@ public class teacher extends person {
 	}
 
 	public void setAddress(String address) {
-		if (!address.isEmpty() && address.trim().length() >= 5) {
+		if (validateTeacherAddress(address)) {
 			this.address = address;
 		} else {
 			System.out.println("Invalid Teacher Address Must be at least 5 characters");
@@ -191,8 +170,12 @@ public class teacher extends person {
 		return salary;
 	}
 
-	private void calculateTotalSalary() {
+	public void calculateTotalSalary() {
 		salary = BASE_SALARY + (yearsOfExperience * EXPERIENCE_BONUS);
+	}
+
+	public static int getTotalTeacherCount() {
+		return teacherCounter;
 	}
 
 	@Override
@@ -239,5 +222,46 @@ public class teacher extends person {
 		System.out.println("Years of Experience :" + yearsOfExperience);
 
 		System.out.println("Salary :$ " + salary);
+	}
+
+	public boolean updateInformation(String newAddress, String newContactNumber) {
+		System.out.println("Notifying HR for Approval...");
+		boolean hrApproval = getHRApproval();
+		if (hrApproval) {
+			if (super.updateInformation(newAddress, newContactNumber)) {
+				System.out.println("Notifying the teacher that information is Updated");
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private boolean getHRApproval() {
+		System.out.println("HR Approved the Request ");
+		return true;
+	}
+
+	public boolean updateInformation(String newAddress, boolean update) {
+		System.out.println("Notifying HR for Approval");
+		boolean hrApproval = getHRApproval();
+		if (hrApproval) {
+			if (super.updateInformation(newAddress, update)) {
+				System.out.println("Notifying the Teacher that information is Updated");
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean updateInformation(String newContactNumber) {
+		System.out.println("Notifying HR Approval");
+		boolean hrApproval = getHRApproval();
+		if (hrApproval) {
+			if (super.updateInformation(newContactNumber)) {
+				System.out.println("Notifying the Teacher that Contact Number has been updated");
+				return true;
+			}
+		}
+		return false;
 	}
 }
