@@ -15,27 +15,12 @@ public class Emp {
 	public String getName() {
 		return name;
 	}
-
-//	public void setName(String name) {
-//		this.name = name;
-//	}
-
 	public int getempId() {
 		return empId;
 	}
-
-//	public void setempId(int empId) {
-//		this.empId = empId;
-//	}
-
 	public double getSalary() {
 		return salary;
 	}
-
-//	public void setSalary(double salary) {
-//		this.salary = salary;
-//	}
-
 	@Override
 	public String toString() {
 		return "Emp [name=" + name + ", empId=" + empId + ", salary=" + salary + "]";

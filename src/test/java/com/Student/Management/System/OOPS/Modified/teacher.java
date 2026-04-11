@@ -2,7 +2,7 @@ package com.Student.Management.System.OOPS.Modified;
 
 import java.util.Objects;
 
-public class teacher extends person {
+public final class teacher extends person {
 
 	private String professionalDetails;
 	private String employeeID; // T101
@@ -112,13 +112,13 @@ public class teacher extends person {
 		return employeeID;
 	}
 
-	public void setEmployeeID(String employeeID) {
-		if (employeeID == null || !employeeID.matches("T\\d{3}")) {
-			System.out.println("Invalid Employee ID. Format must be T followed by 3 digits (e.g., T101)");
-		} else {
-			this.employeeID = employeeID;
-		}
-	}
+//	private final void setEmployeeID(String employeeID) {
+//		if (employeeID == null || !employeeID.matches("T\\d{3}")) {
+//			System.out.println("Invalid Employee ID. Format must be T followed by 3 digits (e.g., T101)");
+//		} else {
+//			this.employeeID = employeeID;
+//		}
+//	}
 
 	public boolean validateEmployeeID(String employeeID) {
 		if (employeeID == null || !employeeID.matches("T\\d{3}")) {
@@ -170,7 +170,7 @@ public class teacher extends person {
 		return salary;
 	}
 
-	public void calculateTotalSalary() {
+	protected final void calculateTotalSalary() {//Restricted Method Overriding
 		salary = BASE_SALARY + (yearsOfExperience * EXPERIENCE_BONUS);
 	}
 

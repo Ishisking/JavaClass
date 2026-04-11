@@ -1,6 +1,6 @@
 package com.Student.Management.System.OOPS.Modified;
 
-public class person {
+public abstract class person {
 	protected String name;
 	protected int age;
 	protected String address;
@@ -8,7 +8,7 @@ public class person {
 	private static int personCounter = 0;
 
 	public person(String name, int age, String address, String contactNumber) {
-		super();
+		 	super();
 		if (validateAddress(address) && validateContactNumber(contactNumber)) {
 			this.name = name;
 			this.age = age;
