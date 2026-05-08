@@ -1,6 +1,6 @@
 package UdemyCodingRound2025;
 
-public class LinkedListRunner {
+public class LinkedListRunner2 {
 
 	public static void main(String[] args) {
 		Node head = new Node(10);
@@ -12,21 +12,18 @@ public class LinkedListRunner {
 	}
 
 	private static Node reverseLinkedList(Node head) {
-		Node current = head;
-		Node next = null;
-		Node prev = null;
-		while (current != null) {
-			next = current.nextReference;
-			current.nextReference = prev;
-			prev = current;
-			current = next;
+		Node current=head;
+		Node next=null;
+		Node prev=null;
+		while(current!=null) {
+			next=current.nextReference;
+			current.nextReference=prev
 		}
-
+		
 		return prev;
 	}
 
 	public static void traverseLinkedList(Node head) {
-		System.out.println("");
 		Node current = head;
 		while (current != null) {
 			System.out.print(current.getData() + "  ");

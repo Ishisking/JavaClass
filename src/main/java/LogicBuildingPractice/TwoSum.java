@@ -8,7 +8,11 @@ public class TwoSum {
 		int a[] = { 2, 11, 7, 5 };
 		int target = 9;
 		int result[] = calculateTwoSum(a, target);
-		System.out.println(result[0] + "  , " + result[1]);
+		if (result != null) {
+		    System.out.println(result[0] + " , " + result[1]);
+		} else {
+		    System.out.println("No pair found");
+		}
 	}
 
 	private static int[] calculateTwoSum(int a[], int target) {
