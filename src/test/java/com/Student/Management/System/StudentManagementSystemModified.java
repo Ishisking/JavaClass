@@ -49,7 +49,7 @@ public class StudentManagementSystemModified {
 	}
 
 	private static void printAllStudentInformation() {
-		for(int i=0;i<index;i++) {
+		for (int i = 0; i < index; i++) {
 			System.out.println("*************************************************");
 			System.out.println("Student Name :" + studentName[i]);
 			System.out.println("Student Age :" + studentAge[i]);

@@ -94,7 +94,7 @@ public abstract class Student extends person {
 		if (age >= 11 && age < 21) {
 			this.age = age;
 		} else {
-			System.out.println("Invalid Age Entered");
+			System.err.println("Invalid Age Entered");
 		}
 	}
 

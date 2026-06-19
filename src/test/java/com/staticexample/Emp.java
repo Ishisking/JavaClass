@@ -5,12 +5,12 @@ public class Emp {
 	public static String companyName;
 	static {
 		//Early initialization of the static variables
-		// Initialize th static variables
+		// Initialize the static variables
 		// code Block
 		companyName = "Infosys";
 		System.out.println("Hi i am in the static block");
 //if we have any Resources that are to be initialized during class loading time
-//static block will be used to setup the logger, dataase connectivity, to read
+//static block will be used to setup the logger, database connectivity, to read
 		//properties file.
 	}
 	static {

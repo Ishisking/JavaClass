@@ -6,11 +6,13 @@ public class RemoveAll10Pattern {
 		String input = "10010101";
 		StringBuilder sb = new StringBuilder();
 		for (char c : input.toCharArray()) {
-			if(c=='0'&&sb.charAt(sb.length()-1)=='1') {
-				sb.deleteCharAt(sb.length()-1);
+			if (c == '0' && sb.length() > 0 && sb.charAt(sb.length() - 1) == '1') {
+				sb.deleteCharAt(sb.length() - 1);
+			} else {
+				sb.append(c);
 			}
 		}
-
+		System.out.println(sb);
 	}
 
 }

@@ -14,6 +14,7 @@ public class JPMorganAssignment {
 				index++;
 			}
 		}
+		System.out.println(Arrays.toString(input));
 		for (int i = index; i < input.length; i++) {
 			input[i] = 0;
 		}
